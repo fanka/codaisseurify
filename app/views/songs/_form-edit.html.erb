@@ -1,4 +1,5 @@
-<%= form_for [@artist, @artist.songs.new] do |f| %>
+
+<%= form_for @song do |f| %>
   <ul>
     <% @song.errors.full_messages.each do |message| %>
       <li><%= message %></li>
