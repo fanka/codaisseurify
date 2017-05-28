@@ -35,6 +35,15 @@ before_action :set_artist, only: [:show, :edit, :update, :destroy]
     redirect_to root_path
   end
 
+  def update
+    @artist = Artist.find(params[:id])
+    if @artist.update(artist_params)
+      redirect_to root_path, notice: "Artist successfully updated"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_artist
