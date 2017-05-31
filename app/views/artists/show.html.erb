@@ -4,9 +4,8 @@
 <tr>
 <td><%= image_tag @artist.image_url %></td>
 <td><h2>List of songs</h2>
-<p><% @artist.songs.each do |song| %>
-  <%= link_to song.name, artist_song_path(@artist, song) %> </p>
-<% end %>
+<%= render 'songs/songs_list' %>
+
 <p><%= link_to "[Add a new song]", new_artist_song_path(@artist,@song)%></p></td>
 <br>
 </tr>

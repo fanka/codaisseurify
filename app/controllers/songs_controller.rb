@@ -6,6 +6,10 @@ class SongsController < ApplicationController
     @song = @artist.songs.build
   end
 
+def index
+  @artist = Artist.find(params[:artist_id])
+  @songs = @artist.songs
+end
 
   def create
   @artist = Artist.find(params[:artist_id])
@@ -40,8 +44,15 @@ class SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-    @song.destroy
-    redirect_to root_path
+    @artist = @song.artist
+    @song.destroy!
+    @songs = Song.where(artist_id: @artist.id)
+
+    respond_to do |format|
+      format.html { redirect_to artist_path(@artist) }
+      format.js
+    end
+    #redirect_to root_path
   end
 
 private

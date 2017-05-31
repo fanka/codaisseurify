@@ -4,7 +4,7 @@ root :to => "artists#index"
   resources :artists
   resources :songs, only: [:edit, :destroy, :update]
   resources :artists do
-    resources :songs, only: [:show, :new]
+    resources :songs, only: [:show, :new, :index, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
