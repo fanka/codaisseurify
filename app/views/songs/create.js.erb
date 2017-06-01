@@ -1,0 +1,3 @@
+$('form').hide();
+$('#songs').append("<%=j render :partial => 'songs/song', :locals => {:song => @song} %>");
+$('.new-song-button').show();

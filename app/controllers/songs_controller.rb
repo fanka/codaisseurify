@@ -4,6 +4,10 @@ class SongsController < ApplicationController
   def new
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.build
+    respond_to do |format|
+    format.html {new_artist_song_path(@artist)}
+     format.js
+    end
   end
 
 def index
@@ -14,11 +18,15 @@ end
   def create
   @artist = Artist.find(params[:artist_id])
   @song = @artist.songs.build(song_params)
-    if @song.save
-      redirect_to @artist
-    else
-      render "new"
-    end
+  #  if
+      @song.save
+      respond_to do |format|
+        format.html { redirect_to artist_path(@artist) }
+        format.js
+      end
+  #  else
+  #    render "new"
+  #  end
   end
 
 

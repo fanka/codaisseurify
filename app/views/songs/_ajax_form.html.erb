@@ -1,0 +1,10 @@
+<%= form_for [@artist, @artist.songs.new], remote:true do |f| %>
+
+  <div class="form-group">
+      <%= f.text_field :name, placeholder: "Name of your song", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add a new song", class: "btn btn-primary" %>
+  </div>
+<%end%>

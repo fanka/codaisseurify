@@ -1,5 +1,5 @@
 <div id="songs"><p><% @artist.songs.each do |song| %>
-  <%= link_to song.name, artist_song_path(@artist, song) %>
+  <%= render song %>
   <%= link_to "Delete", song, method: :delete, remote: true, data: { confirm: "Are you sure?" } %> </p>
 
 <% end %></div>
