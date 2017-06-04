@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-#  before_action :set_song, only: [:show, :edit, :update]
+
 
   def new
     @artist = Artist.find(params[:artist_id])
@@ -18,15 +18,11 @@ end
   def create
   @artist = Artist.find(params[:artist_id])
   @song = @artist.songs.build(song_params)
-  #  if
       @song.save
       respond_to do |format|
         format.html { redirect_to artist_path(@artist) }
         format.js
       end
-  #  else
-  #    render "new"
-  #  end
   end
 
 
@@ -60,7 +56,7 @@ end
       format.html { redirect_to artist_path(@artist) }
       format.js
     end
-    #redirect_to root_path
+
   end
 
   def remove_all
