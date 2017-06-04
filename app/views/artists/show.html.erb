@@ -4,9 +4,13 @@
 <tr>
 <td><%= image_tag @artist.image_url %></td>
 <td><h2>List of songs</h2>
+<div id="songs_list">
 <%= render 'songs/songs_list' %>
+</div>
+<p><%= link_to "[New Song]", new_artist_song_path(@artist, @song), remote: true, class: "new-song-button" %></p>
+<p><%= link_to "Delete all", songs_remove_all_path(song_ids: @artist.songs.ids), remote: true, method: :delete, data: { confirm: "Are you sure?" } %>
+</td>
 
-<p><%= link_to "[New Song]", new_artist_song_path(@artist, @song), remote: true, class: "new-song-button" %></p> </td>
 <br>
 </tr>
 </table>

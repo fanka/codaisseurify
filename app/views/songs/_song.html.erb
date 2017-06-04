@@ -1,3 +1,2 @@
-  <%= link_to song.name, artist_song_path(@artist, song) %>
-  <%= link_to "Edit Song", edit_song_path(song), remote: true %>
-  <%= link_to "Delete Song", song, remote: true, method: :delete, data: { confirm: "Are you sure?" } %>
+  <p><%= link_to song.name, artist_song_path(@artist, song) %>
+  <%= link_to "Delete", song, remote: true, method: :delete, data: { confirm: "Are you sure?" } %> </p>

@@ -63,6 +63,18 @@ end
     #redirect_to root_path
   end
 
+  def remove_all
+  @songs = Song.find(params[:song_ids])
+  @songs.each do |song|
+  song.destroy
+  end
+
+    respond_to do |format|
+      format.html { redirect_to artist_path(@artist) }
+      format.js
+    end
+  end
+
 private
 
 
