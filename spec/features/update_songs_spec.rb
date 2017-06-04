@@ -36,5 +36,19 @@ page.driver.browser.switch_to.alert.accept
 
   end
 
+  scenario 'delete all songs' do
+
+
+  visit artist_path(artist1)
+
+  click_on('Delete all')
+
+  page.driver.browser.switch_to.alert.accept
+
+  expect(page).not_to have_content(song1.name)
+  expect(page).not_to have_content(song2.name)
+
+
+  end
 
 end
